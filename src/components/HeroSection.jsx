@@ -10,7 +10,7 @@ const ParticleBackground = () => {
   return (
     <motion.div className="absolute inset-0 z-10 pointer-events-none">
       {[...Array(30)].map((_, i) => (
-        <motion.div
+        <motion.diva
           key={i}
           className="absolute rounded-full bg-gradient-to-br from-[#FFD700]/60 to-[#8A2BE2]/40 shadow-[0_0_15px_rgba(255,215,0,0.3)]"
           style={{
@@ -160,6 +160,7 @@ const HeroSection = () => {
               autoPlay
               loop
               muted
+              playsInline
               className="w-full h-full object-cover brightness-70 contrast-130"
             />
           </SwiperSlide>
