@@ -5,38 +5,6 @@ import "swiper/css";
 import "swiper/css/effect-creative";
 import { Autoplay, EffectCreative } from "swiper/modules";
 
-
-const ParticleBackground = () => {
-  return (
-    <motion.div className="absolute inset-0 z-10 pointer-events-none">
-      {[...Array(30)].map((_, i) => (
-        <motion.diva
-          key={i}
-          className="absolute rounded-full bg-gradient-to-br from-[#FFD700]/60 to-[#8A2BE2]/40 shadow-[0_0_15px_rgba(255,215,0,0.3)]"
-          style={{
-            width: Math.random() * 6 + 3,
-            height: Math.random() * 6 + 3,
-            top: `${Math.random() * 100}%`,
-            left: `${Math.random() * 100}%`,
-          }}
-          animate={{
-            y: [0, -120, 0],
-            opacity: [0, 0.9, 0],
-            scale: [0.8, 1.3, 0.8],
-            rotate: [0, 15, 0],
-          }}
-          transition={{
-            duration: Math.random() * 4 + 3,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: Math.random() * 2.5,
-          }}
-        />
-      ))}
-    </motion.div>
-  );
-};
-
 const HeroSection = () => {
   const sectionRef = useRef(null);
   const controls = useAnimation();
@@ -45,7 +13,6 @@ const HeroSection = () => {
     offset: ["start end", "end start"],
   });
 
-  
   const yBackground = useSpring(useTransform(scrollYProgress, [0, 1], [0, -250]), {
     stiffness: 130,
     damping: 25,
@@ -55,7 +22,6 @@ const HeroSection = () => {
     damping: 20,
   });
 
-  
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -107,19 +73,10 @@ const HeroSection = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative h-screen overflow-hidden bg-gradient-to-br from-gray-900 via-black to-gray-800"  
+      className="relative h-screen overflow-hidden"
     >
-      
       <motion.div
-        className="absolute inset-0 z-0"
-        animate={{
-          background: [
-            "radial-gradient(circle at 30% 20%, rgba(255, 215, 0, 0.25), rgba(138, 43, 226, 0.15), rgba(17, 24, 39, 0.95))",
-            "radial-gradient(circle at 70% 80%, rgba(138, 43, 226, 0.25), rgba(255, 215, 0, 0.15), rgba(0, 0, 0, 0.95))",
-            "radial-gradient(circle at 50% 50%, rgba(255, 215, 0, 0.2), rgba(138, 43, 226, 0.2), rgba(31, 41, 55, 0.95))",
-          ],
-        }}
-        transition={{ duration: 12, repeat: Infinity, repeatType: "mirror" }}
+        className="absolute inset-0 z-0 bg-[#0B0F19]"
       >
         <motion.div
           className="absolute inset-0 bg-[url('/assets/textures/nebula.png')] bg-cover opacity-20"
@@ -128,7 +85,6 @@ const HeroSection = () => {
         />
       </motion.div>
 
-     
       <motion.div
         style={{ y: yBackground }}
         className="absolute inset-0 z-10"
@@ -167,14 +123,12 @@ const HeroSection = () => {
         </Swiper>
       </motion.div>
 
-
       <motion.div
-        className="absolute inset-0 bg-gradient-to-b from-transparent via-gray-900/40 to-black/80 z-20" 
+        className="absolute inset-0 bg-gradient-to-b from-transparent via-gray-900/40 to-black/80 z-20"
         animate={{ opacity: [0.8, 0.5, 0.8] }}
         transition={{ duration: 6, repeat: Infinity, repeatType: "reverse" }}
       />
 
-    
       <motion.div
         style={{ y: yContent }}
         className="relative z-30 flex flex-col items-center justify-center h-full text-center px-8 md:px-16"
@@ -182,7 +136,6 @@ const HeroSection = () => {
         initial="hidden"
         animate="visible"
       >
-   
         <motion.div
           className="absolute top-1/3 w-[500px] h-[500px] bg-gradient-to-br from-[#FFD700]/40 to-[#8A2BE2]/30 rounded-full blur-3xl z-0"
           variants={glowVariants}
@@ -193,18 +146,18 @@ const HeroSection = () => {
           variants={textVariants}
           className="text-7xl md:text-10xl font-extrabold tracking-tighter bg-clip-text text-transparent bg-gradient-to-r from-[#FFD700] via-[#D8BFD8] to-[#8A2BE2] drop-shadow-[0_8px_20px_rgba(255,215,0,0.6)]"
         >
-          Reign in Splendor
+          Enter the Realm of Elevated Living
         </motion.h1>
         <motion.p
           variants={textVariants}
           className="mt-8 text-2xl md:text-4xl font-light text-[#E6E0FA] max-w-5xl leading-relaxed tracking-wide"
         >
-          Immerse Yourself in Unmatched Elegance and Avant-Garde Luxury at Edu Mall
+         Edu Mall isn't just a destination — it's a curated experience of avant-garde elegance, immersive technology, and timeless grandeur.
         </motion.p>
         <motion.button
           variants={buttonVariants}
           whileHover="hover"
-          className="mt-12 px-14 py-6 bg-gradient-to-r from-[#FFD700] to-[#8A2BE2] rounded-xl text-xl font-bold text-gray-900 shadow-[0_0_30px_rgba(255,215,0,0.7)] relative overflow-hidden group" 
+          className="mt-12 px-14 py-6 bg-gradient-to-r from-[#FFD700] to-[#8A2BE2] rounded-xl text-xl font-bold text-gray-900 shadow-[0_0_30px_rgba(255,215,0,0.7)] relative overflow-hidden group"
         >
           <span className="relative z-10">Ascend to Majesty</span>
           <motion.div
@@ -222,9 +175,8 @@ const HeroSection = () => {
         </motion.button>
       </motion.div>
 
-      
       <motion.div
-        className="absolute bottom-20 left-1/2 transform -translate-x-1/2 z-30"
+        className="absolute bottom-17 left-1/2 transform -translate-x-1/2 z-30"
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1.5, delay: 2 }}
@@ -236,15 +188,12 @@ const HeroSection = () => {
             transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
           />
           <motion.div
-            className="absolute inset-0 bg-gradient-to-b from-[#FFD700]/30 to-[#8A2BE2]/20 rounded-full blur-md"
+            className=" absolute inset-0 bg-gradient-to-b from-[#FFD700]/30 to-[#8A2BE2]/20 rounded-full blur-md"
             animate={{ scale: [1, 1.4, 1] }}
             transition={{ duration: 3, repeat: Infinity }}
           />
         </div>
       </motion.div>
-
-      
-      <ParticleBackground />
     </section>
   );
 };

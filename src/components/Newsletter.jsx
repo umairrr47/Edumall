@@ -18,12 +18,13 @@ const Newsletter = () => {
 
   return (
     <section className="relative py-20 bg-black text-white overflow-hidden">
-      
+      {/* Gradient Overlay */}
       <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-black to-gray-800 opacity-90"></div>
 
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 relative z-10">
+        {/* Heading */}
         <motion.h2
-          className="text-5xl font-extrabold text-center mb-12 text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-white"
+          className="text-4xl sm:text-5xl font-extrabold text-center mb-6 text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-white"
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
@@ -31,14 +32,14 @@ const Newsletter = () => {
           Subscribe to Our Newsletter
         </motion.h2>
 
-        <p className="text-center text-lg text-gray-300 mb-8">
-          Stay ahead with exclusive updates, latest offers, and news!
+        <p className="text-center text-base sm:text-lg text-gray-300 mb-10 max-w-2xl mx-auto">
+          Stay ahead with exclusive updates, latest offers, and insider news!
         </p>
 
-        
+        {/* Form */}
         <motion.form
           onSubmit={handleSubscribe}
-          className="flex justify-center items-center mb-10 bg-black bg-opacity-40 border border-gray-700 backdrop-blur-lg rounded-full px-6 py-4 shadow-xl"
+          className="flex flex-col sm:flex-row items-center gap-4 sm:gap-0 bg-black bg-opacity-40 border border-gray-700 backdrop-blur-lg rounded-full px-4 py-3 shadow-2xl w-full max-w-3xl mx-auto"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -48,21 +49,39 @@ const Newsletter = () => {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder="Enter your email"
-            className="p-3 w-72 md:w-96 rounded-l-full bg-transparent border-none text-white placeholder-gray-400 focus:outline-none"
+            className="w-full sm:flex-1 px-4 py-3 text-sm sm:text-base bg-transparent text-white placeholder-gray-400 focus:outline-none"
             required
           />
+
+          {/* Desktop Button */}
           <button
             type="submit"
-            className="px-6 py-3 bg-yellow-500 text-black font-bold rounded-full shadow-lg hover:bg-yellow-400 transition transform hover:scale-105"
+            className="hidden sm:inline-block bg-yellow-500 hover:bg-yellow-400 transition text-black font-bold px-6 py-3 rounded-full shadow-lg"
           >
             Subscribe
           </button>
         </motion.form>
 
-      
+        {/* Mobile Button */}
+        <motion.div
+          className="mt-4 sm:hidden w-full max-w-xs mx-auto"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4 }}
+        >
+          <button
+            type="submit"
+            onClick={handleSubscribe}
+            className="w-full bg-yellow-500 hover:bg-yellow-400 transition text-black font-bold px-6 py-3 rounded-full shadow-lg"
+          >
+            Subscribe
+          </button>
+        </motion.div>
+
+        {/* Subscription Feedback */}
         {subscribed && (
           <motion.p
-            className="text-green-400 text-center mb-8 text-lg font-semibold"
+            className="text-green-400 text-center mt-6 text-base sm:text-lg font-semibold"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -71,16 +90,16 @@ const Newsletter = () => {
           </motion.p>
         )}
 
-      
-        <div className="flex justify-center space-x-8">
+        {/* Social Icons */}
+        <div className="mt-12 flex justify-center space-x-6">
           {[
             { icon: <FaFacebook size={28} />, url: "https://facebook.com", color: "hover:text-blue-500" },
             { icon: <FaTwitter size={28} />, url: "https://twitter.com", color: "hover:text-blue-400" },
             { icon: <FaInstagram size={28} />, url: "https://instagram.com", color: "hover:text-pink-500" },
             { icon: <FaLinkedin size={28} />, url: "https://linkedin.com", color: "hover:text-blue-700" },
-          ].map(({ icon, url, color }, index) => (
+          ].map(({ icon, url, color }, i) => (
             <motion.a
-              key={index}
+              key={i}
               href={url}
               target="_blank"
               rel="noopener noreferrer"

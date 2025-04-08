@@ -6,7 +6,7 @@ const Footer = () => {
   return (
     <footer className="relative bg-black text-gray-300 py-16 overflow-hidden">
 
-      <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-black to-gray-800 opacity-90"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-black to-gray-800 opacity-60"></div>
 
       <div className="max-w-7xl mx-auto px-6 relative z-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
 
@@ -40,7 +40,7 @@ const Footer = () => {
             SHASTRI NAGAR, RAJKOT, GUJARAT - 360005
           </p>
           <p className="mt-3 text-gray-400">📞 (123) 456-7890</p>
-          <p className="text-gray-400">📧 info@mallname.com</p>
+          <p className="text-gray-400">📧 info@edumall.com</p>
         </div>
 
 
@@ -71,8 +71,8 @@ const Footer = () => {
 
 
       <div className="mt-12 text-center border-t border-gray-700 pt-6">
-        <p className="text-gray-500 text-sm">
-          &copy; {currentYear} <span className="text-yellow-400">Mall Name</span>. All rights reserved.
+        <p className="text-white text-sm">
+          &copy; {currentYear} <span className="text-yellow-400">Edu Mall</span>. All rights reserved.
         </p>
       </div>
     </footer>
