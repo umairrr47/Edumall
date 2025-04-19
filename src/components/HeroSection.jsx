@@ -1,6 +1,7 @@
 import { useRef } from "react";
 import { motion } from "framer-motion";
-import edumall from "../assets/edumall.jpg"
+import edumall from "../assets/edumall.jpg";
+
 const HeroSection = () => {
   const sectionRef = useRef(null);
 
@@ -38,11 +39,11 @@ const HeroSection = () => {
       },
     },
     hover: {
-      scale: 1.05,
-      backgroundColor: "#ffffff",
-      color: "#000000",
+      scale: 1.1,
+      boxShadow: "0px 0px 15px rgba(255, 215, 0, 0.5)",
       transition: {
         duration: 0.3,
+        ease: "easeOut",
       },
     },
   };
@@ -52,7 +53,7 @@ const HeroSection = () => {
       ref={sectionRef}
       className="relative h-screen flex items-center justify-center bg-cover bg-center"
       style={{
-        backgroundImage: `url('/assets/edumall.jpg')` // Placeholder for your mall image
+        backgroundImage: `url(${edumall})` // Use the imported image variable
       }}
     >
       <div className="absolute inset-0 bg-black/60" /> {/* Dark overlay for contrast and readability */}
@@ -82,16 +83,18 @@ const HeroSection = () => {
           <motion.button
             variants={buttonVariants}
             whileHover="hover"
-            className="px-8 py-4 bg-transparent border-2 border-white text-white font-medium text-lg rounded-md shadow-lg"
+            className="px-8 py-4 bg-transparent border-2 border-[#FFD700] text-[#FFD700] font-semibold text-lg rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 relative overflow-hidden"
           >
-            Explore Stores
+            <span className="relative z-10">Explore Stores</span>
+            <div className="absolute inset-0 bg-gradient-to-r from-[#FFD700]/20 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300" />
           </motion.button>
           <motion.button
             variants={buttonVariants}
             whileHover="hover"
-            className="px-8 py-4 bg-white text-black font-medium text-lg rounded-md shadow-lg"
+            className="px-8 py-4 bg-gradient-to-r from-[#FFD700] to-[#F5F5F5] text-black font-semibold text-lg rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 relative overflow-hidden"
           >
-            Current Offers
+            <span className="relative z-10">Current Offers</span>
+            <div className="absolute inset-0 bg-gradient-to-r from-[#FFD700]/30 to-[#F5F5F5]/30 opacity-0 hover:opacity-100 transition-opacity duration-300" />
           </motion.button>
         </motion.div>
       </motion.div>
