@@ -1,6 +1,7 @@
 import { useRef } from "react";
 import { motion } from "framer-motion";
 import edumall from "../assets/edumall.jpg";
+import hero from "../assets/hero.jpg"
 
 const HeroSection = () => {
   const sectionRef = useRef(null);
@@ -53,7 +54,7 @@ const HeroSection = () => {
       ref={sectionRef}
       className="relative h-screen flex items-center justify-center bg-cover bg-center"
       style={{
-        backgroundImage: `url(${edumall})` // Use the imported image variable
+        backgroundImage: `url(${hero})` // Use the imported image variable
       }}
     >
       <div className="absolute inset-0 bg-black/60" /> {/* Dark overlay for contrast and readability */}
